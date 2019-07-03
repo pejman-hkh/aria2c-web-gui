@@ -131,10 +131,6 @@ function makeList( $status = 0 ) {
 		$list[] = $v;
 	}
 
-	if( $status == 2 ) {
-		return $list;
-	}
-
 	return $list;	
 }
 
