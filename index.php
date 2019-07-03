@@ -37,7 +37,7 @@ function req( $method, $params = [] ) {
 
 if( isset( $_GET['start'] ) ) {
 	shell_exec("aria2c --enable-rpc=true --daemon=true");
-	$res = req('changeGlobalOption', [ [ 'dir' => __dir__.'/files' ] ] );
+	$res = req('changeGlobalOption', [ [ 'dir' => __dir__.'/files', 'max-connection-per-server' => 16, 'split' => 16, 'min-split-size' => '1M' ] ] );
 }
 
 if( isset( $_GET['new'] ) ) {
@@ -134,7 +134,6 @@ function makeList( $status = 0 ) {
 	return $list;	
 }
 
-$list = makeList();
 ?>
 <!DOCTYPE html>
 <html>
