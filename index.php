@@ -36,7 +36,8 @@ function req( $method, $params = [] ) {
 
 
 if( isset( $_GET['start'] ) ) {
-	shell_exec("aria2c --enable-rpc=true --daemon=true");
+	$ret = shell_exec("aria2c --enable-rpc=true --daemon=true");
+	echo $ret;
 	//sleep(3);
 	$res = req('changeGlobalOption', [ [ 'dir' => __dir__.'/files', 'max-connection-per-server' => '16', 'split' => '16', 'min-split-size' => '1M' ] ] );
 	header("Location: index.php");
