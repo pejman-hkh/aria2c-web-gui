@@ -107,6 +107,7 @@ if( isset( $_GET['getGlobalOption'] ) ) {
 
 if( isset( $_GET['remove'] ) ) {
 	$ret = req('remove', [ $_GET['remove'] ] );
+	$ret = req('forceRemove', [ $_GET['remove'] ] );
 	echo json_encode($ret);
 	exit();
 }
@@ -122,7 +123,7 @@ if( isset( $_GET['refresh'] ) ) {
 	exit();
 }
 
-function makeList( $status = 0 ) {
+function makeList( $status = 1 ) {
 	$list = [];
 	if( $status != 2 ) {
 		$list = req('tellActive')['result'];
@@ -380,7 +381,7 @@ var app = new Vue({
   	formatBytes : function(a,b) {return formatBytes(a,b);},
   }
 });
-var status = 0;
+var status = 1;
 setInterval( interval = function() {
 	$.ajax({
 	  url: "?refresh="+status,
