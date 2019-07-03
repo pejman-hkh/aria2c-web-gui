@@ -220,15 +220,37 @@ $list = makeList();
 					<label for="email"> Dir : </label>
 					<input type="text" class="form-control" name="dir">
 				</div>
+
 				<div class="form-group">
 					<label for="email"> Max Connections : </label>
 					<input type="text" class="form-control" name="max-connection-per-server">
 				</div>
 
 				<div class="form-group">
+					<label for="email"> Split : </label>
+					<input type="text" class="form-control" name="split">
+				</div>
+
+				<div class="form-group">
+					<label for="email"> Min Split Size : </label>
+					<input type="text" class="form-control" name="min-split-size">
+				</div>
+
+				<div class="form-group">
 					<label for="email"> Http Proxy : </label>
 					<input type="text" class="form-control" name="http-proxy">
 				</div>
+
+				<div class="form-group">
+					<label for="email"> Https Proxy : </label>
+					<input type="text" class="form-control" name="https-proxy">
+				</div>
+
+				<div class="form-group">
+					<label for="email"> Ftp Proxy : </label>
+					<input type="text" class="form-control" name="ftp-proxy">
+				</div>
+
 				<button type="submit" class="btn btn-primary">Save changes</button>
 	        </form>
 	      </div>
@@ -260,6 +282,16 @@ $list = makeList();
 				<div class="form-group">
 					<label for="email"> Max Connections : </label>
 					<input type="text" class="form-control" name="max-connection-per-server">
+				</div>
+
+				<div class="form-group">
+					<label for="email"> Split : </label>
+					<input type="text" class="form-control" name="split">
+				</div>
+
+				<div class="form-group">
+					<label for="email"> Min Split Size : </label>
+					<input type="text" class="form-control" name="min-split-size">
 				</div>
 
 				<div class="form-group">
