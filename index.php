@@ -35,10 +35,15 @@ function req( $method, $params = [] ) {
 }
 
 
+if( isset( $_GET['stop'] ) ) {
+	shell_exec("killall aria2c");
+	header("Location: index.php");
+	exit();	
+}
+
 if( isset( $_GET['start'] ) ) {
 	$ret = shell_exec("aria2c --enable-rpc=true --daemon=true");
-	echo $ret;
-	//sleep(3);
+
 	$res = req('changeGlobalOption', [ [ 'dir' => __dir__.'/files', 'max-connection-per-server' => '16', 'split' => '16', 'min-split-size' => '1M' ] ] );
 	header("Location: index.php");
 	exit();
@@ -158,7 +163,8 @@ function makeList( $status = 0 ) {
 	<div id="app" class="container">
 	<h1>Aria2c</h1>
 
-	<a href="?start" class="btn btn-danger">Start aria2c daemon</a>
+	<a href="?start" class="btn btn-success">Start aria2c daemon</a>
+	<a href="?stop" class="btn btn-danger">Stop aria2c daemon</a>
 	<a href="?getGlobalOption" class="globalOpts btn btn-primary">Global Configuration</a>
 	<br />
 	<br />
@@ -385,6 +391,7 @@ setInterval( interval = function() {
 }, 1000);
 
 interval();
+
 
 $("#app").on("click", ".chStatus", function() {
 
