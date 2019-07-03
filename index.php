@@ -37,6 +37,7 @@ function req( $method, $params = [] ) {
 
 if( isset( $_GET['start'] ) ) {
 	shell_exec("aria2c --enable-rpc=true --daemon=true");
+	$res = req('changeGlobalOption', [ [ 'dir' => __dir__.'/files' ] ] );
 }
 
 if( isset( $_GET['new'] ) ) {
@@ -63,7 +64,6 @@ if( isset( $_GET['changeOption'] ) ) {
 	exit();
 }
 
-$res = req('changeGlobalOption', [ [ 'dir' => __dir__.'/files' ] ] );
 
 if( isset( $_GET['changeGlobalOption'] ) ) {
 
